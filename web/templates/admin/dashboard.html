@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>Admin - Personal Blog</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="blogsAdmin">
+        <div class="blogAdminHeader">
+          <h1>Personal Blog - Admin</h1>
+          <a href="/add" class="btn-add">Add Article</a>
+        </div>
+        <ul>
+          {{range .Articles}}
+          <li class="blog-item">
+            <div class="blog-title">
+              <a href="/article/{{.Id}}">{{.Title}}</a>
+            </div>
+            <div class="blog-actions">
+              <a href="/edit/{{.Id}}" class="edit">Edit</a>
+              <form action="/delete/{{.Id}}" method="post" class="inline-delete">
+                <button type="submit" class="btn-delete">Delete</button>
+              </form>
+            </div>
+          </li>
+          {{else}}
+          <li class="blog-item no-items">No articles found</li>
+          {{end}}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/style.css">
+  <title>New Article</title>
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrapper">
+      <h1>Publish New Article</h1>
+      <form action="/add" method="post" class="article-form">
+        <label for="title">Article Title</label>
+        <input type="text" name="title" id="title" placeholder="Enter title" required>
+
+        <label for="publishingDate">Publishing Date</label>
+        <input type="datetime-local" name="publishingDate" id="publishingDate" required>
+
+        <label for="content">Content</label>
+        <textarea name="content" id="content" placeholder="Write your article here..." required></textarea>
+
+        <button type="submit">Publish</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

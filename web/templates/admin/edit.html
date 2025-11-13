@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Update Article</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-wrapper">
+        <h1>Update Article</h1>
+        <form action="/edit/{{.Id}}" method="post" class="article-form">
+          <label for="title">Article Title</label>
+          <input type="text" name="title" id="title" value="{{.Title}}" required>
+
+          <label for="publishingDate">Publishing Date</label>
+          <input
+            type="datetime-local"
+            name="publishingDate"
+            id="publishingDate"
+            value="{{.PublishingDate}}"
+            required
+          >
+
+          <label for="content">Content</label>
+          <textarea name="content" id="content" required>{{.Content}}</textarea>
+
+          <div class="form-actions">
+            <button type="submit">Update</button>
+            <a href="/admin" class="btn-back">Back to Dashboard</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
