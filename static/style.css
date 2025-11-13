@@ -1,0 +1,493 @@
+/* --- Global Styles and Typography --- */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Clean, modern font */
+    background-color: #f4f4f9; /* Light, subtle background */
+    color: #333; /* Standard text color */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+}
+
+/* --- Main Layout Container --- */
+.container {
+    width: 100%;
+    max-width: 800px; /* Constrain width for better readability */
+    padding: 20px;
+    background-color: #ffffff; /* White background for the main content area */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    margin-top: 40px;
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* --- Header Styling --- */
+h1 {
+    color: #007bff; /* A nice, professional blue accent */
+    border-bottom: 2px solid #e0e0e0; /* Subtle separator line */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 300; /* Lighter font weight for a modern look */
+}
+
+/* --- Blog List Styling --- */
+.blogs ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+.blogs li {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee; /* Light line between list items */
+    transition: background-color 0.3s ease;
+}
+
+.blogs li:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+.blogs li:hover {
+    background-color: #f9f9fd; /* Light hover effect for interactivity */
+}
+
+/* --- Article Title (The Link) --- */
+.blogs a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Keep the link color black */
+    font-size: 1.3em;
+    font-weight: 500;
+    display: block; /* Make the whole area clickable/linkable */
+    margin-bottom: 5px;
+}
+
+.blogs a:hover {
+    color: #007bff; /* Change color on hover to indicate clickability */
+}
+
+/* --- Publishing Date and Metadata --- */
+.blogs p {
+    color: #888; /* Muted color for secondary text */
+    font-size: 0.9em;
+    margin: 0;
+}
+
+/* --- No Items Found Message --- */
+.blogs li:only-child a {
+    color: #888;
+    font-style: italic;
+    font-size: 1em;
+}
+
+/* --- Form Layout and Appearance --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form elements */
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+/* --- Label Styling --- */
+label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: -5px; /* Pull the label closer to the input */
+    font-size: 1em;
+}
+
+/* --- Input and Textarea Styling --- */
+input[type="text"],
+input[type="datetime-local"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Highlight on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+textarea {
+    resize: vertical; /* Allow resizing vertically but not horizontally */
+    min-height: 200px; /* Give a good default height for content */
+}
+
+/* --- Button Styling --- */
+button[type="submit"] {
+    background-color: #28a745; /* A success green color */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Align button to the left */
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* Slightly darker green on hover */
+}
+
+/* --- Individual Article Layout (Article View) --- */
+
+/* The blogContainer can reuse the same layout properties as the .container 
+   from the index page, but we'll define a separate class for clarity. */
+.blogContainer {
+    width: 100%;
+    max-width: 800px; 
+    padding: 20px;
+    background-color: #ffffff; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    margin-top: 40px;
+    border-radius: 8px; 
+}
+
+.blogContent {
+    padding: 20px 0;
+}
+
+/* --- Article Title --- */
+.blogContent h1 {
+    /* Override or enhance the general h1 style */
+    color: #333; /* Darker color for focus */
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    border-bottom: none; /* Remove the bottom border from the general h1 style */
+    padding-bottom: 0;
+}
+
+/* --- Publishing Date --- */
+.articleDate {
+    color: #888;
+    font-size: 0.95em;
+    margin-top: 0;
+    margin-bottom: 30px; /* Space before the main content */
+    font-style: italic;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- Main Article Content (Paragraphs) --- */
+.blogContent p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #3e3e3e;
+    margin-bottom: 20px;
+    text-align: justify; /* Improves readability of long text blocks */
+}
+
+/* --- Back to Articles Link --- */
+.blogContent a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    padding: 5px 0;
+}
+
+.blogContent a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* --- Admin Dashboard Container --- */
+.blogsAdmin {
+    display: flex;
+    flex-direction: column;
+}
+
+.blogAdminHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.blogAdminHeader h1 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #007bff;
+}
+
+.btn-add {
+    text-decoration: none;
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #218838;
+}
+
+/* --- Blog List Items --- */
+.blogsAdmin ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    background-color: #fcfcfc;
+}
+
+.blog-item:hover {
+    background-color: #f9f9fd;
+}
+
+.blog-title a {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+}
+
+.blog-title a:hover {
+    color: #007bff;
+}
+
+/* --- Action Buttons --- */
+.blog-actions a {
+    margin-left: 10px;
+    font-size: 0.95em;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blog-actions a.edit {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.blog-actions a.edit:hover {
+    background-color: #e0a800;
+}
+
+.blog-actions a.delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.blog-actions a.delete:hover {
+    background-color: #c82333;
+}
+
+/* --- No Articles Found --- */
+.blog-item.no-items {
+    justify-content: center;
+    color: #888;
+    font-style: italic;
+    font-size: 1em;
+}
+/* --- Centered Container --- */
+.form-wrapper {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* --- Form Heading --- */
+.form-wrapper h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #007bff;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* --- Form Layout --- */
+.article-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Labels --- */
+.article-form label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+/* --- Inputs & Textarea --- */
+.article-form input[type="text"],
+.article-form input[type="datetime-local"],
+.article-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.article-form input[type="text"]:focus,
+.article-form input[type="datetime-local"]:focus,
+.article-form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0,123,255,0.2);
+}
+
+/* --- Textarea --- */
+.article-form textarea {
+    min-height: 250px;
+    resize: vertical;
+}
+
+/* --- Button --- */
+.article-form button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.article-form button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .form-wrapper {
+        margin: 30px 15px;
+        padding: 20px;
+    }
+
+    .article-form button {
+        width: 100%;
+    }
+}
+
+/* --- Reuse form-wrapper and .article-form styles from New Article --- */
+
+/* --- Form Actions (Buttons & Back Link) --- */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.form-actions button {
+    background-color: #007bff; /* Update button color to distinguish from Publish */
+}
+
+.form-actions button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-back {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #6c757d; /* Grey for secondary action */
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* --- Adjustments for small screens --- */
+@media (max-width: 768px) {
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-actions button,
+    .form-actions .btn-back {
+        width: 100%;
+        text-align: center;
+    }
+}
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Make the delete form inline so it behaves like a button/link */
+.inline-delete {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+/* Delete button styling to match admin dashboard */
+.inline-delete .btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.inline-delete .btn-delete:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
