@@ -11,6 +11,8 @@ import (
 
 var templHome = template.Must(template.ParseFiles("web/templates/home.html"))
 
+var templArticleView = template.Must(template.ParseFiles("web/templates/article.html"))
+
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	// read articles
 	articles, err := article.GetArticles()
@@ -47,14 +49,6 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ArticleViewHandler(w http.ResponseWriter, r *http.Request) {
-	templ, err := template.ParseFiles("web/templates/article.html")
-
-	if err != nil {
-		http.Error(w, "Failed to load template", http.StatusInternalServerError)
-		log.Println("Template parse error:", err)
-		return
-	}
-
 	articleId := r.PathValue("id")
 	articleIdInt, err := strconv.Atoi(articleId)
 
@@ -86,7 +80,43 @@ func ArticleViewHandler(w http.ResponseWriter, r *http.Request) {
 
 	data := articleView
 
-	if err := templ.Execute(w, data); err != nil {
+	if err := templArticleView.Execute(w, data); err != nil {
+		log.Println("Template execution error", err)
+	}
+}
+
+func ArticleSearchHandler(w http.ResponseWriter, r *http.Request) {
+	queryParams := r.URL.Query()
+	titleQuery := queryParams.Get("q")
+
+	filteredArticles, err := article.SearchArticle(titleQuery)
+	type articleView struct {
+		Id             int
+		Title          string
+		PublishingDate string
+	}
+
+	var articleViews []articleView
+	for _, article := range filteredArticles {
+		formattedDate := article.PublishingDate.Format("January 2, 2006")
+		articleViews = append(articleViews, articleView{
+			Id:             article.Id,
+			Title:          article.Title,
+			PublishingDate: formattedDate,
+		})
+	}
+
+	if err != nil {
+		http.Error(w, "Failed to search articles", http.StatusInternalServerError)
+		log.Println("Failed to search articles")
+		return
+	}
+
+	data := map[string]any{
+		"Articles": articleViews,
+	}
+
+	if err := templHome.Execute(w, data); err != nil {
 		log.Println("Template execution error", err)
 	}
 }
