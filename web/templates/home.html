@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>Personal Blog</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="blogs">
+        <h1>Personal Blog</h1>
+        <ul>
+          {{range .Articles}}
+          <li>
+            <a href="/article/{{.Id}}">{{.Title}}</a>
+            <p>{{.PublishingDate}}</p>
+          </li>
+          {{else}}
+          <li>No items found</li>
+          {{end}}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
