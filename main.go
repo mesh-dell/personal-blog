@@ -18,6 +18,7 @@ func main() {
 	http.HandleFunc("/delete/{id}", handlers.AuthMiddleware(handlers.DeleteArticleHandler))
 	http.HandleFunc("/edit/{id}", handlers.AuthMiddleware(handlers.UpdateArticleHandler))
 	http.HandleFunc("/article/{id}", handlers.ArticleViewHandler)
+	http.HandleFunc("/search", handlers.ArticleSearchHandler)
 
 	fmt.Println("Server started on :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
