@@ -2,6 +2,7 @@ package article
 
 import (
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -114,4 +115,21 @@ func FindArticle(id int) (Article, error) {
 		}
 	}
 	return Article{}, fmt.Errorf("article not found")
+}
+
+func SearchArticle(titleQuery string) ([]Article, error) {
+	articles, err := ReadArticles()
+	if err != nil {
+		return nil, err
+	}
+
+	var filteredArticles []Article
+	// filter by title
+	for _, article := range articles {
+		if strings.Contains(article.Title, titleQuery) {
+			filteredArticles = append(filteredArticles, article)
+		}
+	}
+
+	return filteredArticles, nil
 }
